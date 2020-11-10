@@ -3,6 +3,7 @@ package com.example.mycalendar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -22,6 +23,8 @@ public class CalendarEventInfoActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.eventList);
 
+        String chosenDate = this.getIntent().getStringExtra("date");
+        Log.d("CALENDAR CHOSEN DATE", chosenDate);
         listShow();
 
         adapterList = new EventListAdapter(this, list);
