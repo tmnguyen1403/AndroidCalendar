@@ -5,11 +5,13 @@ public class CustomListAdapter {
     private String eventname;
     private String eventtime;
     private String eventdescription;
+    private String eventLocation;
 
-    public CustomListAdapter(String eventName, String eventTime, String eventDescription) {
+    public CustomListAdapter(String eventName, String eventTime, String eventDescription, String eventLocation) {
         this.eventname = eventName;
         this.eventtime = eventTime;
         this.eventdescription = eventDescription;
+        this.eventLocation = eventLocation;
     }
 
     public String getTitle() {
@@ -23,4 +25,6 @@ public class CustomListAdapter {
     public String getDescription() {
         return eventdescription;
     }
+
+    public String getLocation() {return eventLocation;}
 }

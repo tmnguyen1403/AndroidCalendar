@@ -45,12 +45,12 @@ public class EventListAdapter extends BaseAdapter {
         TextView title = view.findViewById(R.id.eventName);
         TextView time = view.findViewById(R.id.eventTime);
         TextView description = view.findViewById(R.id.eventDescription);
-
+        TextView location = view.findViewById(R.id.eventLocation);
 
         title.setText(customListAdapters.get(position).getTitle());
         time.setText(customListAdapters.get(position).getTime());
         description.setText(customListAdapters.get(position).getDescription());
-
+        location.setText(customListAdapters.get(position).getLocation());
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

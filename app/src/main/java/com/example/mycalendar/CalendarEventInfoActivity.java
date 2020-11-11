@@ -15,7 +15,6 @@ public class CalendarEventInfoActivity extends AppCompatActivity {
     ArrayList<CustomListAdapter> list;
     EventListAdapter adapterList;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,20 +22,25 @@ public class CalendarEventInfoActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.eventList);
 
+        //receive the clicked date on the Calendar
         String chosenDate = this.getIntent().getStringExtra("date");
         Log.d("CALENDAR CHOSEN DATE", chosenDate);
-        listShow();
+        listShow(chosenDate);
 
         adapterList = new EventListAdapter(this, list);
+        if (list.isEmpty())
+            Log.d("No event on date: ", chosenDate);
         listView.setAdapter((ListAdapter) adapterList);
     }
 
-    private void listShow() {
+    private void listShow(String chosenDate) {
         list = new ArrayList<CustomListAdapter>();
-
-        list.add(new CustomListAdapter("Robotics lab", "10am to 11:30am", "Join us for the 5th annual robotics lab at UHD"));
-        list.add(new CustomListAdapter("Android Studio Basics", "2pm to 3:30pm", "Create your first Android Mobile app in this short seminar"));
-        list.add(new CustomListAdapter("Hackathon", "6pm to 7pm", "Join us to learn the basics in cyber security"));
-
+        for (Event event: DataHolder.events) {
+            Log.d("event Date", event.startDate);
+            if (chosenDate.equals(event.startDate)) {
+                String eventTime = String.format("%s to %s", event.startTime, event.endTime);
+                list.add(new CustomListAdapter(event.name, eventTime, event.description, event.location));
+            }
+        }
     }
 }

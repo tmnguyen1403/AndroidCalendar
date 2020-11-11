@@ -52,6 +52,15 @@
                 android:text="Event description will be provided in this section"
                 android:textColor="@color/lightergray"/>
 
+            <TextView
+                android:id="@+id/eventLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@+id/eventDescription"
+                android:text="Event location will be provided in this section"
+                android:textColor="@color/lightergray"/>
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
